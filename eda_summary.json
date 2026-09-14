@@ -1,0 +1,50 @@
+{
+  "total_posts_after_cleaning": 12000,
+  "duplicate_rows_removed": 360,
+  "negative_likes_corrected": 509,
+  "platform_distribution": {
+    "Facebook": 2074,
+    "YouTube": 2073,
+    "Twitter": 2049,
+    "Reddit": 2031,
+    "Instagram": 1989,
+    "Unknown": 1784
+  },
+  "posts_missing_text": 1711,
+  "timestamps_unparseable": 0,
+  "avg_likes": 2491.864716277243,
+  "avg_shares": 1007.1671666666666,
+  "avg_comments": 504.34575,
+  "top_10_hashtags": {
+    "Reviews": 750,
+    "Fitness": 749,
+    "BestValue": 732,
+    "Eco": 723,
+    "SpecialOffer": 723,
+    "Sustainable": 721,
+    "Trending": 720,
+    "Beauty": 716,
+    "Affordable": 715,
+    "Lifestyle": 713
+  },
+  "top_10_locations_by_post_volume": {
+    "Los Angeles, USA": 459,
+    "Munich, Germany": 452,
+    "Shanghai, China": 451,
+    "Barcelona, Spain": 439,
+    "Houston, USA": 422,
+    "Melbourne, Australia": 421,
+    "Dubai, UAE": 421,
+    "Rio de Janeiro, Brazil": 414,
+    "Mumbai, India": 413,
+    "Milan, Italy": 403
+  },
+  "avg_likes_by_platform": {
+    "Facebook": 2528.9,
+    "Instagram": 2500.9,
+    "Reddit": 2488.1,
+    "Twitter": 2437.7,
+    "Unknown": 2475.1,
+    "YouTube": 2517.8
+  }
+}

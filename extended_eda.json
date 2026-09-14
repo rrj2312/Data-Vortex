@@ -1,0 +1,155 @@
+{
+  "avg_engagement_by_platform": {
+    "likes": {
+      "Facebook": 2528.9,
+      "Instagram": 2500.9,
+      "Reddit": 2488.1,
+      "Twitter": 2437.7,
+      "Unknown": 2475.1,
+      "YouTube": 2517.8
+    },
+    "shares": {
+      "Facebook": 984.2,
+      "Instagram": 1040.8,
+      "Reddit": 1002.2,
+      "Twitter": 1005.4,
+      "Unknown": 998.6,
+      "YouTube": 1011.8
+    },
+    "comments": {
+      "Facebook": 506.9,
+      "Instagram": 499.8,
+      "Reddit": 511.2,
+      "Twitter": 506.1,
+      "Unknown": 496.5,
+      "YouTube": 504.4
+    }
+  },
+  "engagement_by_has_text": {
+    "likes": {
+      "false": 2523.1,
+      "true": 2486.7
+    },
+    "shares": {
+      "false": 1019.6,
+      "true": 1005.1
+    },
+    "comments": {
+      "false": 506.4,
+      "true": 504.0
+    }
+  },
+  "correlation_matrix": {
+    "likes": {
+      "likes": 1.0,
+      "shares": -0.001,
+      "comments": 0.01,
+      "follower_count": 0.008
+    },
+    "shares": {
+      "likes": -0.001,
+      "shares": 1.0,
+      "comments": 0.024,
+      "follower_count": -0.014
+    },
+    "comments": {
+      "likes": 0.01,
+      "shares": 0.024,
+      "comments": 1.0,
+      "follower_count": -0.0
+    },
+    "follower_count": {
+      "likes": 0.008,
+      "shares": -0.014,
+      "comments": -0.0,
+      "follower_count": 1.0
+    }
+  },
+  "top_3_hashtags_per_platform": {
+    "Facebook": [
+      [
+        "Beauty",
+        139
+      ],
+      [
+        "MustHave",
+        134
+      ],
+      [
+        "ProductLaunch",
+        134
+      ]
+    ],
+    "Instagram": [
+      [
+        "Eco",
+        141
+      ],
+      [
+        "Fashion",
+        135
+      ],
+      [
+        "Lifestyle",
+        134
+      ]
+    ],
+    "Reddit": [
+      [
+        "TrendAlert",
+        139
+      ],
+      [
+        "Affordable",
+        131
+      ],
+      [
+        "Deal",
+        131
+      ]
+    ],
+    "Twitter": [
+      [
+        "Premium",
+        136
+      ],
+      [
+        "Reviews",
+        136
+      ],
+      [
+        "MustHave",
+        134
+      ]
+    ],
+    "Unknown": [
+      [
+        "BestValue",
+        120
+      ],
+      [
+        "Discount",
+        119
+      ],
+      [
+        "Reviews",
+        119
+      ]
+    ],
+    "YouTube": [
+      [
+        "Sale",
+        152
+      ],
+      [
+        "MustHave",
+        140
+      ],
+      [
+        "Trending",
+        138
+      ]
+    ]
+  },
+  "follower_likes_correlation": 0.017
+}
