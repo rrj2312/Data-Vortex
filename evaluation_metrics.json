@@ -1,0 +1,363 @@
+{
+  "audit": {
+    "n_rows": 9000,
+    "sentiment_distribution": {
+      "Negative": 3000,
+      "Positive": 3000,
+      "Neutral": 3000
+    },
+    "topic_distribution": {
+      "Community_Discussion": 7752,
+      "Technical_Issues": 815,
+      "Feature_Feedback": 297,
+      "Account_Security": 136
+    },
+    "n_missing": 0,
+    "n_duplicate_text_rows": 1100,
+    "n_duplicate_groups": 987,
+    "n_duplicate_groups_with_conflicting_labels": 0,
+    "char_len_mean": 107.98577777777778,
+    "char_len_min": 25,
+    "char_len_max": 180,
+    "sentiment_topic_chi2": {
+      "chi2": 35.07296596038832,
+      "p_value": 4.171468813716718e-06,
+      "dof": 6
+    }
+  },
+  "preprocessing": {
+    "rows_before_dedup": 9000,
+    "rows_after_dedup": 7900,
+    "rows_removed": 1100,
+    "post_dedup_distribution": {
+      "Neutral": 2748,
+      "Positive": 2722,
+      "Negative": 2430
+    }
+  },
+  "split": {
+    "train": 6320,
+    "test": 1580,
+    "stratified": true,
+    "test_size": 0.2,
+    "random_state": 42
+  },
+  "model_selection": [
+    {
+      "model": "LogisticRegression (word+char)",
+      "cv_f1_macro": 0.593659392154312,
+      "cv_f1_std": 0.013844721110806096,
+      "cv_accuracy": 0.5922468354430379
+    },
+    {
+      "model": "LinearSVC (char)",
+      "cv_f1_macro": 0.5933186979068579,
+      "cv_f1_std": 0.008540304089444985,
+      "cv_accuracy": 0.5922468354430379
+    },
+    {
+      "model": "LinearSVC (word+char)",
+      "cv_f1_macro": 0.5922819567230311,
+      "cv_f1_std": 0.010662836163153142,
+      "cv_accuracy": 0.5909810126582279
+    },
+    {
+      "model": "LinearSVC (word)",
+      "cv_f1_macro": 0.5802503332462026,
+      "cv_f1_std": 0.011558724119506673,
+      "cv_accuracy": 0.579113924050633
+    },
+    {
+      "model": "LogisticRegression (word)",
+      "cv_f1_macro": 0.5746732212212854,
+      "cv_f1_std": 0.010914936639956435,
+      "cv_accuracy": 0.573259493670886
+    },
+    {
+      "model": "SGD hinge (word+char)",
+      "cv_f1_macro": 0.5705364642215781,
+      "cv_f1_std": 0.012275132202278164,
+      "cv_accuracy": 0.5694620253164557
+    },
+    {
+      "model": "RandomForest (word)",
+      "cv_f1_macro": 0.5598377009033576,
+      "cv_f1_std": 0.011328016490058388,
+      "cv_accuracy": 0.5590189873417721
+    },
+    {
+      "model": "MultinomialNB (word)",
+      "cv_f1_macro": 0.5581973470792512,
+      "cv_f1_std": 0.012004550266789505,
+      "cv_accuracy": 0.558860759493671
+    },
+    {
+      "model": "ComplementNB (word)",
+      "cv_f1_macro": 0.555519441663624,
+      "cv_f1_std": 0.013869582286917854,
+      "cv_accuracy": 0.5591772151898734
+    },
+    {
+      "model": "Majority baseline",
+      "cv_f1_macro": 0.17202782165689381,
+      "cv_f1_std": 0.00014225816334783968,
+      "cv_accuracy": 0.34778481012658224
+    }
+  ],
+  "preprocessing_ablation": [
+    {
+      "variant": "Raw text (no cleaning)",
+      "cv_f1_macro": 0.5939243930659772
+    },
+    {
+      "variant": "+ HTML unescape + quote fix",
+      "cv_f1_macro": 0.5924035370729978
+    },
+    {
+      "variant": "+ @user -> USERTOKEN",
+      "cv_f1_macro": 0.5933110100978691
+    },
+    {
+      "variant": "+ hashtag word split (FULL)",
+      "cv_f1_macro": 0.5922819567230311
+    }
+  ],
+  "tuning": {
+    "best_params": {
+      "clf__C": "0.1",
+      "tfidf__c__min_df": "3",
+      "tfidf__c__ngram_range": "(3, 5)",
+      "tfidf__w__min_df": "2",
+      "tfidf__w__ngram_range": "(1, 2)"
+    },
+    "best_cv_f1_macro": 0.6044712949513271
+  },
+  "final_evaluation": {
+    "accuracy": 0.6158227848101265,
+    "macro_f1": 0.6169456418235975,
+    "weighted_f1": 0.6153294265045136,
+    "macro_roc_auc_ovr": 0.790071531975559,
+    "per_class": {
+      "Negative": {
+        "precision": 0.6264150943396226,
+        "recall": 0.6831275720164609,
+        "f1": 0.6535433070866141,
+        "support": 486
+      },
+      "Neutral": {
+        "precision": 0.5522388059701493,
+        "recall": 0.5381818181818182,
+        "f1": 0.5451197053406999,
+        "support": 550
+      },
+      "Positive": {
+        "precision": 0.6712062256809338,
+        "recall": 0.6341911764705882,
+        "f1": 0.6521739130434783,
+        "support": 544
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Negative",
+        "Neutral",
+        "Positive"
+      ],
+      "matrix": [
+        [
+          332,
+          97,
+          57
+        ],
+        [
+          142,
+          296,
+          112
+        ],
+        [
+          56,
+          143,
+          345
+        ]
+      ]
+    },
+    "random_baseline_accuracy": 0.3333333333333333
+  },
+  "error_analysis": {
+    "confusion_pairs": [
+      {
+        "true": "Positive",
+        "pred": "Neutral",
+        "count": 143,
+        "pct_of_errors": 23.6
+      },
+      {
+        "true": "Neutral",
+        "pred": "Negative",
+        "count": 142,
+        "pct_of_errors": 23.4
+      },
+      {
+        "true": "Neutral",
+        "pred": "Positive",
+        "count": 112,
+        "pct_of_errors": 18.5
+      },
+      {
+        "true": "Negative",
+        "pred": "Neutral",
+        "count": 97,
+        "pct_of_errors": 16.0
+      },
+      {
+        "true": "Negative",
+        "pred": "Positive",
+        "count": 57,
+        "pct_of_errors": 9.4
+      },
+      {
+        "true": "Positive",
+        "pred": "Negative",
+        "count": 56,
+        "pct_of_errors": 9.2
+      }
+    ],
+    "n_errors": 607,
+    "n_test": 1580,
+    "error_rate_by_length": [
+      {
+        "len_q": "Q1 shortest",
+        "error_rate": 0.32638888888888884,
+        "n": 432
+      },
+      {
+        "len_q": "Q2",
+        "error_rate": 0.4240362811791383,
+        "n": 441
+      },
+      {
+        "len_q": "Q3",
+        "error_rate": 0.368421052631579,
+        "n": 342
+      },
+      {
+        "len_q": "Q4 longest",
+        "error_rate": 0.4191780821917809,
+        "n": 365
+      }
+    ],
+    "mean_margin_correct": 0.5650028008184668,
+    "mean_margin_incorrect": 0.32276478502168787,
+    "acc_low_margin_quartile": 0.4607594936708861,
+    "acc_high_margin_quartile": 0.8405063291139241,
+    "confident_mistakes": [
+      {
+        "true": "Neutral",
+        "pred": "Negative",
+        "margin": 1.6210162743923298,
+        "text": "\"If it weren't for Christians, the Aztecs would never have stopped killing babies (like Planned Parenthood does.)"
+      },
+      {
+        "true": "Neutral",
+        "pred": "Negative",
+        "margin": 1.303813128407965,
+        "text": "USERTOKEN USERTOKEN USERTOKEN the States ensured SCOTUS could take this action by enacting 14th Amendment"
+      },
+      {
+        "true": "Neutral",
+        "pred": "Positive",
+        "margin": 1.2236242961775705,
+        "text": "\"Should've went to watch Paper Towns first, I'll just go see it tomorrow\""
+      },
+      {
+        "true": "Negative",
+        "pred": "Positive",
+        "margin": 1.2139504281215105,
+        "text": "All my friends are going to the Sam Smith concert tomorrow and I got offered a ticket but ya girl ain't got $145 so I'm maddddd"
+      },
+      {
+        "true": "Neutral",
+        "pred": "Negative",
+        "margin": 1.178137400970658,
+        "text": "\"Was going to play DA but man I'm so fucking tired I may just go the fuck to bed. But Twilight is up to 22k, yay ^_^\""
+      },
+      {
+        "true": "Positive",
+        "pred": "Negative",
+        "margin": 1.1766376461645174,
+        "text": "Transgender is a difficult subject but it has been timed well with the Caitlyn Jenner thing so that may give it some appeal."
+      },
+      {
+        "true": "Neutral",
+        "pred": "Negative",
+        "margin": 1.152727446270777,
+        "text": "USERTOKEN you may not put bumpers stickers on a Bentley you also don't let a shit load a people drive it either if you get my drift"
+      },
+      {
+        "true": "Positive",
+        "pred": "Neutral",
+        "margin": 1.1389753988843854,
+        "text": "Josh Hamilton hit a two run homer in 2011 WS in the 10th with a sports hernia. If anyone with any decent fielding skills catches the ball..."
+      }
+    ],
+    "top_features": {
+      "Negative": [
+        "w__no",
+        "w__shit",
+        "w__not",
+        "w__sad",
+        "c__uck",
+        "w__worst",
+        "w__fuck",
+        "w__why",
+        "c__:( ",
+        "c__'t ",
+        "c__n't",
+        "w__the worst",
+        "c__n't ",
+        "c__fuck",
+        "c__fuc"
+      ],
+      "Neutral": [
+        "w__do you",
+        "w__at",
+        "w__gucci",
+        "w__of the",
+        "w__in",
+        "w__or",
+        "w__sox",
+        "c__ in",
+        "w__it is",
+        "c__e: ",
+        "w__son",
+        "c__... ",
+        "w__giants",
+        "w__january",
+        "w__set to"
+      ],
+      "Positive": [
+        "w__love",
+        "w__good",
+        "w__best",
+        "w__happy",
+        "w__great",
+        "w__can wait",
+        "c__lov",
+        "c__ lov",
+        "w__nice",
+        "c__ :)",
+        "w__amazing",
+        "c__:) ",
+        "w__fun",
+        "w__excited",
+        "w__wait"
+      ]
+    }
+  },
+  "secondary_topic_task": {
+    "accuracy": 0.9537974683544304,
+    "macro_f1": 0.748305431372466,
+    "majority_baseline": 0.8613924050632912,
+    "beats_majority": true
+  }
+}

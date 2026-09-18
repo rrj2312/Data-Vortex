@@ -1,0 +1,5 @@
+variant,cv_f1_macro
+Raw text (no cleaning),0.5939243930659772
++ HTML unescape + quote fix,0.5924035370729978
++ @user -> USERTOKEN,0.5933110100978691
++ hashtag word split (FULL),0.5922819567230311

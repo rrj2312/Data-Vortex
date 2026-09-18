@@ -1,0 +1,18 @@
+{
+  "naive_with_duplicates": {
+    "test_n": 1800,
+    "leaked_test_rows": 313,
+    "leaked_pct": 17.39,
+    "accuracy": 0.6588888888888889,
+    "macro_f1": 0.658371894323497,
+    "accuracy_on_leaked_rows": 0.9297124600638977,
+    "accuracy_on_unseen_rows": 0.6018829858776059
+  },
+  "deduplicated": {
+    "test_n": 1580,
+    "leaked_test_rows": 0,
+    "accuracy": 0.6158227848101265,
+    "macro_f1": 0.6169456418235975
+  },
+  "inflation_accuracy_points": 4.31
+}
